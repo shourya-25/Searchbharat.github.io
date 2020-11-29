@@ -1,0 +1,637 @@
+<HTML>
+<HEAD>
+<TITLE> Search Bharat</TITLE>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+   <style type="text/css">
+   * {
+   box-sizing: border-box;
+   }
+   html, body {
+   margin: 0;
+   padding: 0;
+   }
+   body {
+   display: flex;
+   min-height: 100vh;
+   flex-direction: column;
+   }
+   main {
+   flex: 1 0 auto;
+   }
+   footer {
+   color: grey;
+   background: black;
+   position: relative; /* required to position the copyright at the bottom */
+   font-size: 120%;
+   }
+   .footer-copyright {
+   width: 100%;
+   height: 60px;
+   background: #111;
+   /* positions the copyright at the bottom of the footer */
+   padding: 10px;
+   position: absolute;
+   bottom: 0px;
+   left: 0px;
+   }
+   .footer-body {
+   margin-bottom: 40px;
+   }
+   /* the clearfix hack */
+   .footer-body::after {
+   content: "";
+   display: block;
+   clear: both;
+   }
+   /* float the divs */
+   .footer-body > div {
+   float: left;
+   padding: 20px;
+   }
+   /* sets the width of the first column */
+   .footer-body > div:first-child {
+   font-size: 150%;
+   width: 35%;
+   text-align: center;
+   }
+   /* sets the width of the second column */
+   .footer-body > div:last-child {
+   width: 65%;
+   }
+   .footer-body ul {
+   list-style-type: none;
+   margin: 0px;
+   padding: 0px;
+   text-align: center;
+   }
+   .footer-body li > a {
+   color: white;
+   text-decoration: none;
+   margin-bottom: 7px;
+   }
+   </style>
+   
+   <style type="text/css">
+   * {
+   box-sizing: border-box;
+   }
+   .container {
+   margin-top: 30px;
+   text-align: center;
+   }
+   .tooltip {
+   position: relative; /* helps position the tooltip content */
+   border-bottom: 1px white;
+   }
+   .tooltip-content {
+   color: white;
+   background: grey;
+   padding: 6px;
+   border-radius: 10px;
+   opacity: 0; /* fully transparent (hidden) */
+   transition-duration: 2s; /* duration of the fade in effect */
+   
+   /* positions the tooltip content */
+   position: absolute;
+   z-index: 1;
+   text-align: center;
+   width: 110px;
+   top: -3px; /* border-width x -1 */
+   left: 105%;
+   }
+   .tooltip:hover > .tooltip-content {
+   opacity: 1; /* fully opaque (fully visible) */
+   }
+   .tooltip > .tooltip-content::after {
+   content: " ";
+   position: absolute;
+   top: 50%;
+   right: 100%;
+   margin-top: -5px;
+   border: 5px solid transparent;
+   border-right-color: grey;
+   }
+   </style>
+   
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lemonada:wght@600&display=swap" rel="stylesheet">
+  
+   <style type="text/css">
+   h1 {
+font-family: 'Lemonada', cursive;
+   }
+   </style>
+   <style type="text/css">
+   h1 {
+   font-size: 92px;
+   background: -webkit-linear-gradient(black, black, black, black, black, Black, transparent, black, black, black, black, black, black);
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+   }
+   </style>
+   <style type="text/css">
+/* The side navigation menu */
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: #111; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 50px; /* Place content 60px from the top */
+    transition: 0.2s; /* 0.5 second transition effect to slide in the sidenav */
+}
+ 
+/* The navigation menu links */
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.1s
+}
+ 
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover, .offcanvas a:focus{
+    color: white;
+}
+ 
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+ 
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+    transition: margin-left .5s;
+    padding: 20px;
+    overflow:hidden;
+    width:100%;
+}
+body {
+  overflow-x: hidden;
+}
+ 
+/* Add a black background color to the top navigation */
+.topnav {
+    background-color: transparent;
+    overflow: hidden;
+}
+ 
+/* Style the links inside the navigation bar */
+.topnav a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+ 
+/* Change the color of links on hover */
+.topnav a:hover {
+    background-color: white;
+    color: black;
+}
+ 
+/* Add a color to the active/current link */
+.topnav a.active {
+    background-color: white;
+    color: black;
+}
+ 
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+ 
+a svg{
+  transition:all .2s ease;
+ 
+  &:hover{
+    #transform:rotate(180deg);
+  }
+}
+ 
+#ico{
+  display: none;
+}
+ 
+.menu{
+  background: #000;
+  display: none;
+  padding: 5px;
+  width: 320px;
+  @include border-radius(5px);
+ 
+  #transition: all 0.2s ease;
+ 
+  a{
+    display: block;
+    color: #fff;
+    text-align: center;
+    padding: 10px 2px;
+    margin: 3px 0;
+    text-decoration: none;
+    background: #444;
+ 
+    &:nth-child(1){
+      margin-top: 0;
+      @include border-radius(3px 3px 0 0 );
+    }
+    &:nth-child(5){
+      margin-bottom: 0;
+      @include border-radius(0 0 3px 3px);
+    }
+ 
+    &:hover{
+      background: #555;
+    }
+  }
+}
+</style>
+   <style type="text/css">
+   body {
+   background: linear-gradient(-45deg, black, red, red, white, purple, aqua,  black,  blue);
+   background-size: 400% 400%;
+   -webkit-animation: gradient 10s ease infinite;
+   animation: gradient 10s ease infinite;
+   }
+   
+   @-webkit-keyframes gradient {
+   0% {
+   background-position: 0% 50%;
+   }
+   50% {
+   background-position: 100% 50%;
+   }
+   100% {
+   background-position: 0% 50%;
+   }
+   }
+   
+   @keyframes gradient {
+   0% {
+   background-position: 0% 50%;
+   }
+   50% {
+   background-position: 100% 50%;
+   }
+   100% {
+   background-position: 0% 50%;
+   }
+   }body {
+   background: linear-gradient(-45deg, black, red, red, white, purple, aqua,  black,  blue);
+   background-size: 400% 400%;
+   -webkit-animation: gradient 10s ease infinite;
+   animation: gradient 10s ease infinite;
+   }
+   
+   @-webkit-keyframes gradient {
+   0% {
+   background-position: 0% 50%;
+   }
+   50% {
+   background-position: 100% 50%;
+   }
+   100% {
+   background-position: 0% 50%;
+   }
+   }
+   
+   @keyframes gradient {
+   0% {
+   background-position: 0% 50%;
+   }
+   50% {
+   background-position: 100% 50%;
+   }
+   100% {
+   background-position: 0% 50%;
+   }
+   }body {
+   background: linear-gradient(-45deg, black, red, red, white, purple, aqua,  black, , blue);
+   background-size: 400% 400%;
+   -webkit-animation: gradient 10s ease infinite;
+   animation: gradient 10s ease infinite;
+   }
+   
+   @-webkit-keyframes gradient {
+   0% {
+   background-position: 0% 50%;
+   }
+   50% {
+   background-position: 100% 50%;
+   }
+   100% {
+   background-position: 0% 50%;
+   }
+   }
+   
+   @keyframes gradient {
+   0% {
+   background-position: 0% 50%;
+   }
+   50% {
+   background-position: 100% 50%;
+   }
+   100% {
+   background-position: 0% 50%;
+   }
+   }
+   </style>
+   <style type="text/css">
+   /* The alert message box */
+   .alert {
+   padding: 8px;
+   background-color: GREY; /* grey */
+   color: white;
+   margin-bottom: 15px;
+   }
+   
+   /* The close button */
+   .closebtn {
+   margin-left: 10px;
+   color: white;
+   font-weight: bold;
+   float: right;
+   font-size: 12px;
+   line-height: 10px;
+   cursor: pointer;
+   transition: 0.1s;
+   }
+   
+   /* When moving the mouse over the close button */
+   .closebtn:hover {
+   color: black;
+   }
+   </style>
+   <head>
+   <style>
+   .button {
+   display: inline-block;
+   padding: 15px 25px;
+   font-size: 14px;
+   cursor: pointer;
+   text-align: center;
+   text-decoration: bold;
+   outline: none;
+   color: black;
+   background-color: black;
+   border: black;
+   border-radius: 15px;
+   box-shadow: 0 9px grey;
+   }
+   
+   .button:hover {background-color: Black}
+   
+   .button:active {
+   background-color: transparent;
+   box-shadow: 0 5px #666;
+   transform: translateY(8px);
+   }
+   </style>
+   <style>
+   .button rock{
+   display: inline-block;
+   padding: 15px 25px;
+   font-size: 10px;
+   cursor: pointer;
+   text-align: center;
+   text-decoration: bold;
+   outline: none;
+   color: black;
+   background-color: black;
+   border: black;
+   border-radius: 15px;
+   box-shadow: 0 9px white;
+   }
+   
+   .button rock:hover {background-color: grey}
+   
+   .button rock:active {
+   background-color: white;
+   box-shadow: 0 5px grey;
+   transform: translateY(8px);
+   }
+   </style>
+   
+   <style>
+   a:link {
+   color: white;
+   background-color: transparent;
+   text-decoration: none;
+   }
+   a:visited {
+   color: white;
+   background-color: transparent;
+   text-decoration: none;
+   }
+   a:hover {
+   color: white;
+   background-color: transparent;
+   text-decoration: none;
+   }
+   a:active {
+   color: white;
+   background-color: transparent;
+   text-decoration: none;
+   }
+   </style>
+  
+</HEAD>
+<BODY> 
+<div class="alert">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+ Be aware of duplicate websites and search engines.<a href="https://www.417marketing.com/the-danger-of-duplicate-content/" > Click here to know more</a>
+</div>
+<div id="sideNavigation" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+   <div style="text-align: center">
+<br><br><button class="button rock" > <a href="https://www.google.com/webhp?sa=X&output=search&ved=0ahUKEwjJv-vN4v7sAhUg6nMBHYlUCucQ0tQDCA0oAA">Google</a></button>
+<br> <br><button class="button rock"> <a href="https://www.youtube.com/?app=desktop">YouTube</a></button>
+<br> <br><button class="button rock" ><a href="https://g.co/kgs/uSdZRj" >Pinterest</a></button>
+<br><br> <button class="button rock"> <a href="https://www.google.com/webhp?output=search&tbm=isch&tbo=u&sa=X&ved=0ahUKEwjj9qvM4v7sAhUf7XMBHYiuB1cQ0tQDCA8oAQ">Google images</a></button>
+<br><br> <button class="button rock" ><a href="https://wynk.in/music">Listen music</a></button>
+<br><br><button class="button rock" > <a href="https://m.hindustantimes.com/">News</a></button>
+<br><br> <button class="button rock" ><a href="mailto: shourya.chouhan25@gmail.com">Contact</a></button>
+<br><br> <button class="button rock" ><a href="https://www.amazon.in/">Shopping</a></button>
+<br> <br><button class="button rock" ><a href="https://www.toppr.com/?utm_medium=search-brand&utm_source=google&utm_campaign=soching-brand-search&utm_term=toppr&device=t&gclid=CjwKCAiA17P9BRB2EiwAMvwNyCNnWhdPq_kwkrWBYpmnxmOqenTsNWBSFwOb_m_AEWON0chX4Y0MeBoChK0QAvD_BwE">Education</a></button>
+<br><br> <button class="button rock" ><a href="https://www.wikipedia.org/">Wikipedia</a></button>
+<br><br> <button class="button rock" ><a href="https://paytm.com/">Pay Bills</a></button>
+<br><br> <button class="button rock" ><a href="https://www.olacabs.com/">Book a cab</a></button>
+<br><br> <button class="button rock" ><a href="https://www.youtube.com/channel/UC6pbcuKVNgnCmxFA63BUlcA">Our YouTube channel</a></button>
+<br><br><button class="button rock">  <a href="https://paytm.com/movies">Movie tickets</a></button>
+
+</div>
+</div>
+ 
+<nav class="topnav">
+  <a href="#" onclick="openNav()">
+    <svg width="30" height="30" id="icoOpen">
+        <path d="M0,5 30,5" stroke="#000" stroke-width="5"/>
+        <path d="M0,14 30,14" stroke="#000" stroke-width="5"/>
+        <path d="M0,23 30,23" stroke="#000" stroke-width="5"/>
+    </svg>
+  </a>
+</nav>
+ 
+<div id="main">
+<!-- Add all your websites page content here  -->
+</div>
+<HEADER>
+   <div style="text-align: center">
+   <font color="#001580" size= "3"> "Search something everyday,gain some knowledge everyday" </font>
+   <br>
+      <h1><font color ="black" size="6.5"> SEARCHBHARAT </font> </h1>
+      <font>India </font>
+      <br>
+      <hr color="black" size="5">
+      <br>
+	      <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;  QUICK OPTIONS </span>
+      
+<script>
+function openNav() {
+    document.getElementById("sideNavigation").style.width = "210px";
+    document.getElementById("main").style.marginLeft = "210px";
+}
+ 
+function closeNav() {
+    document.getElementById("sideNavigation").style.width = "0";
+    document.getElementById("main").style.marginLeft = "0";
+}
+</script>
+
+    
+      <br>
+      <hr color="orange">
+      <hr color="white">
+      <hr color="green">
+      <br>
+      <i> <font color ="black" size ="2">Safe,Fast and Fully Indian search engine</font> </i>
+<script async src="https://cse.google.com/cse.js?cx=26e7b571c8ddd6c35"></script>
+<div class="gcse-search"></div>
+<div class="gcse-searchresults"></div>
+      <!-- changing text color using an RGB value -->
+       <p style="color: black"> <b> Made in BHARAT  |  Vocal for local </p><br>
+      
+</div><br>
+   <div style="text-align: center">
+
+<br>
+<div>
+<button class="button"><a href = "https://cloud.google.com/maps-platform"style="text-decoration: none;"> Road Maps </a> </button>
+
+
+
+<button class="button" ><a href ="https://www.amazon.in/"style="text-decoration: none;"> Online Shopping </a> </button>
+<br><br>
+<div>
+<button class="button"> <a href="https://www.jiocinema.com/" style="text-decoration: none;"> Free Movies </a> </button>
+<button class="button"> <a href="https://jiotv.com/"style="text-decoration: none;" > Watch TV shows </a></button>
+</div>
+<br>
+<div>
+<div>
+<button class="button"> <a href="https://www.cardekho.com/" style="text-decoration: none;"> Car reviews</a></button>
+<button class="button"> <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.googleassistant" style="text-decoration: none;"> Assistant </a></button>
+</div>
+<br>
+
+<button class="button" ><a href ="https://www.spotify.com/in/"style="text-decoration: none;"> Ad Free Songs </a> </button>
+
+
+<button class="button"> <a href ="https://www.pexels.com/"style="text-decoration: none;"> Free Images </a></button>
+</div>
+<br>
+<div>
+<button class="button"> <a href="https://www.unitconverters.net/"style="text-decoration: none;" > Unit converter</a></button>
+<button class="button"> <a href="https://translate.google.co.in/"style="text-decoration: none;" > Language translater</a></button>
+</div>
+<br>
+<font color ="black" size ="5"> Search anything here. </font>
+<br><br>
+
+
+
+<br>
+<hr color = "orange">
+<hr color = "white">
+<hr color ="green">
+
+   
+   <div style="text-align: center">
+
+
+
+<br><br><br>
+
+
+<button class="button"> <a href ="https://www.youtube.com/channel/UC6pbcuKVNgnCmxFA63BUlcA"style="text-decoration: none;"> Go directly to our YouTube channel  </a> </button>
+</div>
+</HEADER>
+   <div style="text-align: center">
+   <br><br>
+   <hr>
+<div style="overflow:hidden;position: relative;"><iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0"width="300" height="163" type="text/html" src="https://www.youtube.com/embed/60xzvLLRdZI?autoplay=0&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0"></iframe><div style="position: absolute;bottom: 10px;left: 0;right: 0;margin-left: auto;margin-right: auto;color: #000;text-align: center;"><small style="line-height: 1.8;font-size: 0px;background: #fff;">  </small></div><style>.newst{position:relative;text-align: centre;height:420px;width:520px;} #gmap_canvas img{max-width:none!important;background:none!important}</style></div><br />   
+<font> Enjoy one of our videos here! If you're interested please contact us or support us. </font>
+<hr>
+<BR>
+<button class="button"> <a href="https://pin.it/2iXx8yT" style="text-decoration: none;"> Our pins on Pinterest </a> </button>
+<br>
+<HR COLOR ="orange">
+<HR COLOR = "WHITE">
+<HR COLOR ="green">
+
+<button class="button" ><a href ="https://earth.app.goo.gl/?apn=com.google.earth&isi=293622097&ius=googleearth&link=https%3a%2f%2fearth.google.com%2fweb%2f%4027.1832405,78.94307112,-630.38706424a,8316487.17866779d,35y,-8.00871848h,7.81992243t,0r"style="text-decoration: none;">  Get a tour across the Earth </a></button>
+<br>
+<p> This is one of the new features of Search Bharat ! You might need to download Google Earth from Google Play Store </p>
+<br><br><br><br>
+<p> Sorry for any inconvenience, as this website may not support some browsers. But you can mail us in contact for further development.</p>
+<footer>
+      <div class="footer-body">
+         <div> SearchBharat. </div>
+         <br>
+         <div>
+            <p> This search engine is based on Google for all results displayed on searches . All websites mentioned here are copyright of their respective owners.All rights reserved. As Indian we don't steal your information and data. </p>
+            <ul>
+               
+               <li><a href="mailto: shourya.chouhan25@gmail.com" style="text-decoration: none;"> Contact </a>
+               
+               </li>
+               <li> <div class="container">
+               <span class="tooltip"> Terms and Conditions
+               <span class="tooltip-content">Sorry, We are working on it. </span>
+               </span>
+               </div> </li>
+               <li><div class="container">
+               <span class="tooltip"> Privacy Policy 
+               <span class="tooltip-content"> Sorry,we are working on it. </span>
+               </span>
+               </div></li>
+               
+               
+            </ul>
+         </div>
+      </div>
+      <br><br>
+      <font> Support us by increasing our subscribers on YouTube channel! </font>
+      <br><br>
+      <a href="https://www.youtube.com/channel/UC6pbcuKVNgnCmxFA63BUlcA" > Click here and Support </a>
+   </footer>
+   <br><br>
+   <marquee> Be aware of duplicate websites. This website does not steal your information and data from your device or browser, but duplicate websites can.</marquee>
+   <br><br>
+<font color="white" size="5">Thanks for visiting us! </font>
+</BODY>
+</HTML>
